@@ -1,0 +1,104 @@
+<div class="form-horizontal">
+    <h3>Create a new Produit</h3>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-sm-2">
+            <a id="Create" name="Create" class="btn btn-primary" href="#/Produits/new"><span class="glyphicon glyphicon-plus-sign"></span> Create</a>
+        </div>
+    </div>
+</div>
+<hr/>
+<div>
+    <h3>Search for Produits</h3>
+    <form id="ProduitSearch" class="form-horizontal">
+    <div class="form-group">
+        <label for="nomproduit" class="col-sm-2 control-label">Nomproduit</label>
+        <div class="col-sm-10">
+            <input id="nomproduit" name="nomproduit" class="form-control" type="text" ng-model="search.nomproduit" placeholder="Enter the Produit Nomproduit"></input>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="qualite" class="col-sm-2 control-label">Qualite</label>
+        <div class="col-sm-10">
+            <input id="qualite" name="qualite" class="form-control" type="text" ng-model="search.qualite" placeholder="Enter the Produit Qualite"></input>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="region" class="col-sm-2 control-label">Region</label>
+        <div class="col-sm-10">
+            <select id="region" name="region" class="form-control" ng-model="search.region" ng-options="r as r for r in regionList">
+                <option value="">Choose a Region</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="ville" class="col-sm-2 control-label">Ville</label>
+        <div class="col-sm-10">
+            <input id="ville" name="ville" class="form-control" type="text" ng-model="search.ville" placeholder="Enter the Produit Ville"></input>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="quantite" class="col-sm-2 control-label">Quantite</label>
+        <div class="col-sm-10">
+            <input id="quantite" name="quantite" class="form-control" type="text" ng-model="search.quantite" placeholder="Enter the Produit Quantite"></input>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="prix" class="col-sm-2 control-label">Prix</label>
+        <div class="col-sm-10">
+            <input id="prix" name="prix" class="form-control" type="text" ng-model="search.prix" placeholder="Enter the Produit Prix"></input>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="producteur" class="col-sm-2 control-label">Producteur</label>
+        <div class="col-sm-10">
+            <select id="producteur" name="producteur" class="form-control" ng-model="search.producteur" ng-options="p as p.nomproducteur for p in producteurList">
+                <option value="">Choose a Producteur</option>
+            </select>
+        </div>
+    </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-sm-10">
+                <a id="Search" name="Search" class="btn btn-primary" ng-click="performSearch()"><span class="glyphicon glyphicon-search"></span> Search</a>
+            </div>
+        </div>
+    </form>
+</div>
+<div id="search-results">
+    <div class="table-responsive">
+        <table class="table table-responsive table-bordered table-striped clearfix">
+            <thead>
+                <tr>
+                    <th>Nomproduit</th>
+                    <th>Qualite</th>
+                    <th>Region</th>
+                    <th>Ville</th>
+                    <th>Quantite</th>
+                    <th>Prix</th>
+                    <th>Producteur</th>
+                </tr>
+            </thead>
+            <tbody id="search-results-body">
+                <tr ng-repeat="result in searchResults | searchFilter:searchResults | startFrom:currentPage*pageSize | limitTo:pageSize">
+                    <td><a href="#/Produits/edit/{{result.id}}">{{result.nomproduit}}</a></td>
+                    <td><a href="#/Produits/edit/{{result.id}}">{{result.qualite}}</a></td>
+                    <td><a href="#/Produits/edit/{{result.id}}">{{result.region}}</a></td>
+                    <td><a href="#/Produits/edit/{{result.id}}">{{result.ville}}</a></td>
+                    <td><a href="#/Produits/edit/{{result.id}}">{{result.quantite}}</a></td>
+                    <td><a href="#/Produits/edit/{{result.id}}">{{result.prix}}</a></td>
+                        <td><a href="#/Produits/edit/{{result.id}}">{{result.date| date:'dd-MM-yyyy'}}</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <ul class="pagination pagination-centered">
+        <li ng-class="{disabled:currentPage == 0}">
+            <a id="prev" href ng-click="previous()">«</a>
+        </li>
+        <li ng-repeat="n in pageRange" ng-class="{active:currentPage == n}" ng-click="setPage(n)">
+            <a href ng-bind="n + 1">1</a>
+        </li>
+        <li ng-class="{disabled: currentPage == (numberOfPages() - 1)}">
+            <a id="next" href ng-click="next()">»</a>
+        </li>
+    </ul>
+</div>

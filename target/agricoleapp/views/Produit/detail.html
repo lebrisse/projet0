@@ -1,0 +1,90 @@
+<header ng-switch on="$location.path().indexOf('/Produits/new') > -1">
+    <h3 ng-switch-when="true">Create a new Produit</h3>
+    <h3 ng-switch-when="false">View or edit Produit</h3>
+</header>
+<form id="ProduitForm" name="ProduitForm" class="form-horizontal" role="form">
+    <div ng-show="displayError" class="alert alert-danger">
+        <strong>Error!</strong> Something broke. Retry, or cancel and start afresh.
+    </div>
+    <div class="form-group" ng-class="{'has-error': ProduitForm.nomproduit.$invalid}">
+        <label for="nomproduit" class="col-sm-2 control-label">Nomproduit</label>
+        <div id="nomproduitControls" class="col-sm-10">
+            <input id="nomproduit" name="nomproduit" type="text" required ng-maxlength="50" class="form-control" ng-model="produit.nomproduit" placeholder="Enter the Produit Nomproduit"></input>
+            <span class="help-block error" ng-show="ProduitForm.nomproduit.$error.required">required</span> 
+            <span class="help-block error" ng-show="ProduitForm.nomproduit.$error.maxlength">maximum length is 50</span>
+        </div>
+    </div>
+    <div class="form-group" ng-class="{'has-error': ProduitForm.qualite.$invalid}">
+        <label for="qualite" class="col-sm-2 control-label">Qualite</label>
+        <div id="qualiteControls" class="col-sm-10">
+            <input id="qualite" name="qualite" type="text" required ng-maxlength="2000" class="form-control" ng-model="produit.qualite" placeholder="Enter the Produit Qualite"></input>
+            <span class="help-block error" ng-show="ProduitForm.qualite.$error.required">required</span> 
+            <span class="help-block error" ng-show="ProduitForm.qualite.$error.maxlength">maximum length is 2000</span>
+        </div>
+    </div>
+    <div class="form-group" ng-class="{'has-error': ProduitForm.region.$invalid}">
+        <label for="region" class="col-sm-2 control-label">Region</label>
+        <div id="regionControls" class="col-sm-10">
+        <select id="region" name="region" class="form-control" ng-model="produit.region" ng-options="r for r in regionList"  >
+            <option value="">Choose a Region</option>
+        </select>
+        </div>
+    </div>
+    <div class="form-group" ng-class="{'has-error': ProduitForm.ville.$invalid}">
+        <label for="ville" class="col-sm-2 control-label">Ville</label>
+        <div id="villeControls" class="col-sm-10">
+            <input id="ville" name="ville" type="text" required ng-maxlength="50" class="form-control" ng-model="produit.ville" placeholder="Enter the Produit Ville"></input>
+            <span class="help-block error" ng-show="ProduitForm.ville.$error.required">required</span> 
+            <span class="help-block error" ng-show="ProduitForm.ville.$error.maxlength">maximum length is 50</span>
+        </div>
+    </div>
+    <div class="form-group" ng-class="{'has-error': ProduitForm.quantite.$invalid}">
+        <label for="quantite" class="col-sm-2 control-label">Quantite</label>
+        <div id="quantiteControls" class="col-sm-10">
+            <input id="quantite" name="quantite" type="number" required class="form-control" ng-model="produit.quantite" placeholder="Enter the Produit Quantite"></input>
+            <span class="help-block error" ng-show="ProduitForm.quantite.$error.required">required</span> 
+            <span class="help-block error" ng-show="ProduitForm.quantite.$error.number">not a number</span>
+        </div>
+    </div>
+     <div class="form-group" ng-class="{'has-error': ProduitForm.date.$invalid}">
+        <label for="date" class="col-sm-2 control-label">Date</label>
+        <div id="dateControls" class="col-sm-10">
+            <date id="date" name="date" required ng-model="produit.date" placeholder="Enter the Produit Date"></date>
+            <span class="help-block error" ng-show="ProduitForm.date.$error.required">required</span> 
+            <span class="help-block error" ng-show="ProduitForm.date.$error.dateFormat">does not match format "yyyy-MM-dd" (e.g. 2013-12-01)</span>
+        </div>
+    </div>
+    <div class="form-group" ng-class="{'has-error': ProduitForm.prix.$invalid}">
+        <label for="prix" class="col-sm-2 control-label">Prix</label>
+        <div id="prixControls" class="col-sm-10">
+            <input id="prix" name="prix" type="number" required class="form-control" ng-model="produit.prix" placeholder="Enter the Produit Prix"></input>
+            <span class="help-block error" ng-show="ProduitForm.prix.$error.required">required</span> 
+            <span class="help-block error" ng-show="ProduitForm.prix.$error.number">not a number</span>
+        </div>
+    </div>
+    
+     <div class="form-group" ng-class="{'has-error': ProduitForm.imageproduit.$invalid}">
+        <label for="imageproduit" class="col-sm-2 control-label">Image_produit</label>
+        <div id="imageproduitControls" class="col-sm-10">
+            <input id="imageproduit" name="imageproduit" type="file" size="50" ng-model="produit.imageproduit"></input>
+            <span class="help-block error" ng-show="ProduitForm.imageproduit.$error.required">required</span> 
+            <span class="help-block error" ng-show="ProduitForm.imageproduit.$error.number">not a file</span>
+        </div>
+    </div>
+    
+    <div class="form-group" ng-class="{'has-error': ProduitForm.nomproducteur.$invalid}">
+        <label for="nomproducteur" class="col-sm-2 control-label">Producteur</label>
+        <div id="nomproducteurControls" class="col-sm-10">
+        <select id="nomproducteur" name="nomproducteur" multiple class="form-control" ng-model="produit.nomproducteur" ng-options="p.text for p in nomproducteurSelectionList"  >
+            <option value="">Choose a Producteur</option>
+        </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button id="saveProduit" name="saveProduit" class="btn btn-primary" ng-disabled="isClean() || ProduitForm.$invalid" ng-click="save()"><span class="glyphicon glyphicon-ok-sign"></span> Save</button>
+            <button id="cancel" name="cancel" class="btn btn-default" ng-click="cancel()"><span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
+            <button id="deleteProduit" name="deleteProduit" class="btn btn-danger" ng-show="produit.id" ng-click="remove()"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+        </div>
+    <div>
+</form>

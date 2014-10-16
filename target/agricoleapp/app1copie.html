@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="projetagricole">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Projetagricole</title>
+    <link href="styles/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="styles/bootstrap-theme.css" rel="stylesheet" media="screen">
+    <link href="styles/main.css" rel="stylesheet" media="screen">
+    
+     <link rel="stylesheet" href="style.css" />
+     
+</head>
+<body >
+    <div id="wrap">
+    	
+    	<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="offcanvas">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+				    <a class="navbar-brand" href="#">Projetagricole</a>
+			    </div>
+			</div>
+    	</div>
+        
+        <div class="container">
+            <div class="row row-offcanvas row-offcanvas-left">
+                <!-- sidebar -->
+                <div class="col-xs-6 col-sm-3 well sidebar-offcanvas">
+                    <a href="app.html">
+                        <img class="hidden-xs img-responsive" src="img/forge-logo.png" alt="JBoss Forge"></img>
+                    </a>
+                    <nav class="sidebar-nav" ng-controller="NavController" role="navigation">
+                        <div id="sidebar-entries" class="list-group">
+                        	<a class="list-group-item" ng-class="{active: matchesRoute('CategorieProduits')}" href="#/CategorieProduits" data-toggle="offcanvas">CategorieProduits</a>
+                        	<a class="list-group-item" ng-class="{active: matchesRoute('Clients')}" href="#/Clients" data-toggle="offcanvas">Clients</a>
+                        	<a class="list-group-item" ng-class="{active: matchesRoute('Commandess')}" href="#/Commandess" data-toggle="offcanvas">Commandess</a>
+                        	<a class="list-group-item" ng-class="{active: matchesRoute('Producteurs')}" href="#/Producteurs" data-toggle="offcanvas">Producteurs</a>
+                        	<a class="list-group-item" ng-class="{active: matchesRoute('Produits')}" href="#/Produits" data-toggle="offcanvas">Produits</a>
+                        	<a class="list-group-item" ng-class="{active: matchesRoute('PrixRegions')}" href="#/PrixRegions" data-toggle="offcanvas">Prix-Moyen</a>
+                        	<a class="list-group-item" ng-class="{active: matchesRoute('PrixPeriodes')}" href="#/PrixPeriodes" data-toggle="offcanvas">Prix-Periode</a>
+                        </div>
+                    </nav>
+                </div>
+                <!-- main area-->
+                <div class="col-sm-offset-1 col-xs-12 col-sm-8 well mainarea">
+                    <div id="main" ng-view>
+                    </div>
+                    <div ng-controller="AppController" nv-file-drop="" uploader="uploader">
+                    <input type="file" nv-file-select="" uploader="uploader" multiple />
+                     <h2>The queue. Length: {{ uploader.queue.length }}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="footer">
+        <div class="container">
+            <p>Powered by <a href="http://jboss.org/forge">Forge</a></p>
+            <p><a href="http://glyphicons.com">Glyphicons Free</a> licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+        </div>
+    </div>
+        <script src="js/console-sham.js"></script>
+        <script src="js/angular-file-upload.js"></script>
+        <script src="js/controllers.js"></script>
+        <script src="js/directives.js"></script>
+        
+    <script src="scripts/vendor/modernizr-2.6.2.min.js"></script>
+    <script src="scripts/vendor/jquery-1.9.1.js"></script>
+    <script src="scripts/vendor/bootstrap.js"></script>
+    <script src="scripts/vendor/angular.js"></script>
+ 
+    <script src="scripts/vendor/angular-route.js"></script>
+    <script src="scripts/vendor/angular-resource.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/offcanvas.js"></script>
+    <script src="scripts/directives/datepicker.js"></script>
+    <script src="scripts/directives/timepicker.js"></script>
+    <script src="scripts/directives/datetimepicker.js"></script>
+    <script src="scripts/filters/startFromFilter.js"></script>
+    <script src="scripts/filters/genericSearchFilter.js"></script>
+    <script src="scripts/services/locationParser.js"></script>
+    <script src="scripts/services/CategorieProduitFactory.js"></script>
+    <script src="scripts/controllers/newCategorieProduitController.js"></script>
+    <script src="scripts/controllers/searchCategorieProduitController.js"></script>
+    <script src="scripts/controllers/editCategorieProduitController.js"></script>
+    <script src="scripts/services/ClientFactory.js"></script>
+    <script src="scripts/controllers/newClientController.js"></script>
+    <script src="scripts/controllers/searchClientController.js"></script>
+    <script src="scripts/controllers/editClientController.js"></script>
+    <script src="scripts/services/CommandesFactory.js"></script>
+    <script src="scripts/controllers/newCommandesController.js"></script>
+    <script src="scripts/controllers/searchCommandesController.js"></script>
+    <script src="scripts/controllers/editCommandesController.js"></script>
+    <script src="scripts/services/ProducteurFactory.js"></script>
+    <script src="scripts/controllers/newProducteurController.js"></script>
+    <script src="scripts/controllers/searchProducteurController.js"></script>
+    <script src="scripts/controllers/editProducteurController.js"></script>
+    <script src="scripts/services/ProduitFactory.js"></script>
+    <script src="scripts/controllers/newProduitController.js"></script>
+    <script src="scripts/controllers/searchProduitController.js"></script>
+    <script src="scripts/controllers/editProduitController.js"></script>
+    
+    <script src="scripts/services/PrixRegionFactory.js"></script>
+    <script src="scripts/controllers/searchPrixRegionController.js"></script>
+    <script src="scripts/services/PrixPeriodeFactory.js"></script>
+    <script src="scripts/controllers/searchPrixPeriodeController.js"></script>
+    
+ 
+       
+    
+</body>
+</html>
