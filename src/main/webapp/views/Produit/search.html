@@ -1,5 +1,31 @@
 <div class="form-horizontal">
-    <h3>Create a new Produit</h3>
+    <h1>Creer Nouveau Produit</h1>
+    <div class="accordion" id="accordion2">
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+        Collapsible Group Item #1
+      </a>
+    </div>
+    <div id="collapseOne" class="accordion-body collapse in">
+      <div class="accordion-inner">
+        Anim pariatur cliche...
+      </div>
+    </div>
+  </div>
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+        Collapsible Group Item #2
+      </a>
+    </div>
+    <div id="collapseTwo" class="accordion-body collapse">
+      <div class="accordion-inner">
+        Anim pariatur cliche...
+      </div>
+    </div>
+  </div>
+</div>
     <div class="form-group">
         <div class="col-md-offset-2 col-sm-2">
             <a id="Create" name="Create" class="btn btn-primary" href="#/Produits/new"><span class="glyphicon glyphicon-plus-sign"></span> Create</a>
@@ -85,7 +111,7 @@
                     <td><a href="#/Produits/edit/{{result.id}}">{{result.ville}}</a></td>
                     <td><a href="#/Produits/edit/{{result.id}}">{{result.quantite}}</a></td>
                     <td><a href="#/Produits/edit/{{result.id}}">{{result.prix}}</a></td>
-                        <td><a href="#/Produits/edit/{{result.id}}">{{result.date| date:'dd-MM-yyyy'}}</a></td>
+                    <td><a href="#/Produits/edit/{{result.id}}">{{result.date| date:'dd-MM-yyyy'}}</a></td>
                 </tr>
             </tbody>
         </table>

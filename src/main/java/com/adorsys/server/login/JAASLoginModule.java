@@ -15,11 +15,9 @@ import javax.security.auth.callback.UnsupportedCallbackException;
 import javax.security.auth.login.LoginException;
 import javax.security.auth.spi.LoginModule;
 
-import org.bson.types.ObjectId;
 import org.jboss.resteasy.logging.Logger;
 
 import com.adorsys.projet.util.DbCollectionUtil;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
@@ -217,7 +215,7 @@ import com.mongodb.DBObject;
 	  private List<String> getRoles() { 
 	      
 	      
-		  BasicDBObject search = new BasicDBObject();
+		/*  BasicDBObject search = new BasicDBObject();
 	        search.put("_idUser", _idUser);
 	        DBObject userModules = db.getCollection("UserModules").findOne(search);
 	        String jsonArrayModules = userModules.get("_idModules").toString();
@@ -227,15 +225,15 @@ import com.mongodb.DBObject;
 	            modules = new ObjectMapper().readValue(jsonArrayModules, String[].class);
 	        } catch (IOException e) {
 	            e.printStackTrace();
-	        }
+	        }*/
 
 	        List<String> modulesList = new ArrayList<String>();
-	        for (String _idModule : modules) {
+	    /*    for (String _idModule : modules) {
 	            DBObject module = db.getCollection("Module").findOne(new BasicDBObject("_id", new ObjectId(_idModule)));
 	            if (module != null){
 	                modulesList.add(module.get("name").toString());
 	            }
-	        }
+	        }*/
 
 	        return modulesList;
 	    
