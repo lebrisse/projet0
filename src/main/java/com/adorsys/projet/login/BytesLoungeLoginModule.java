@@ -12,8 +12,9 @@ import javax.security.auth.callback.NameCallback;
 import javax.security.auth.callback.PasswordCallback;
 import javax.security.auth.callback.UnsupportedCallbackException;
 import javax.security.auth.login.LoginException;
+import javax.security.auth.spi.LoginModule;
 
-public class BytesLoungeLoginModule {
+public class BytesLoungeLoginModule implements LoginModule{
 	
 	private CallbackHandler handler;
 	  private Subject subject;
@@ -22,7 +23,7 @@ public class BytesLoungeLoginModule {
 	  private String login;
 	  private List<String> userGroups;
 
-	 
+	  @Override
 	  public void initialize(Subject subject,CallbackHandler callbackHandler,
 	      Map<String, ?> sharedState,Map<String, ?> options) {
 
@@ -30,7 +31,7 @@ public class BytesLoungeLoginModule {
 	    this.subject = subject;
 	  }
 
-	 
+	  @Override
 	  public boolean login() throws LoginException {
 
 	    Callback[] callbacks = new Callback[2];
@@ -76,7 +77,7 @@ public class BytesLoungeLoginModule {
 
 	  }
 
-	
+	  @Override
 	  public boolean commit() throws LoginException {
 
 	    userPrincipal = new UserPrincipal(login);
@@ -92,7 +93,7 @@ public class BytesLoungeLoginModule {
 	    return true;
 	  }
 
-	
+	  @Override
 	  public boolean abort() throws LoginException {
 	    return false;
 	  }

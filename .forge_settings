@@ -27,7 +27,7 @@
 <jboss-as>
 <as7>
 <configured>PROJECT</configured>
-<jboss-home>/tools/jboss-eap-</jboss-home>
+<jboss-home>/tools/jboss-eap-6.2/bin </jboss-home>
 </as7>
 </jboss-as>
 </configuration>
