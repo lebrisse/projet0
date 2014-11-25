@@ -44,7 +44,7 @@
 					<div class="col-sm-6">
 						<div class="social-icons pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="facebook.com"><i class="fa fa-facebook"></i></a></li>
 								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
 								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
 								<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
@@ -61,9 +61,14 @@
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
-							<a href="index.html"><img class="hidden-xs img-responsive" src="images/home/logo.png" alt="" /></a>
+							<a href="index.html"><img class="hidden-xs img-responsive" src="images/home/logo.png" alt="AGRO-book " /></a>
 						</div>
-						<div class="btn-group pull-right">
+						
+					</div>
+					<div class="col-sm-8">
+						<div class="shop-menu pull-right">
+							<ul class="nav navbar-nav collapse navbar-collapse">
+							<li><div class="btn-group pull-right">
 							<div class="btn-group">
 								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
 									AFRIQUE
@@ -85,16 +90,19 @@
 									<li><a href="#">Euro</a></li>
 								</ul>
 							</div>
-						</div>
-					</div>
-					<div class="col-sm-8">
-						<div class="shop-menu pull-right">
-							<ul class="nav navbar-nav">
-								<li><a href="#"><i class="fa fa-user"></i> Compte</a></li>
-								<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
+						</div></li>
+								<li class="dropdown"><a href="#"><i class="fa fa-user"></i> Compte</a>
+								 <ul role="menu" class="sub-menu">
+                                        <li><a href="#/Clients">Client</a></li>
+										<li><a href="#/Producteurs">Producteur</a></li>
+                                    </ul></li>
+								<li><a href="#"><i class="fa fa-star"></i> Commandes</a></li>
 								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-								<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+								<!--<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>-->
+								<li><a ng-class="{active: matchesRoute('connexion')}" href="#/connexion"><i class="fa fa-lock"></i> Login</a>
+								<ul role="menu" class="sub-menu">
+                                        <li><a href="#/localhost:8080/agricoleapp/logout">déconnecté</a></li>
+                                    </ul></li>
 							</ul>
 						</div>
 					</div>
@@ -123,32 +131,29 @@
 										<li><a href="product-details.html">Detail Produit</a></li>
 										<li><a href="checkout.html">Checkout</a></li> 
 										<li><a href="cart.html">Cart</a></li> 
-										<li><a href="views/html/login.html">Login</a></li>
+										<li><a ng-class="{active: matchesRoute('connexion')}" href="#/connexion" data-toggle="offcanvas">Login</a></li>
                                         <li><a href="produit.html">Produit</a></li>
                                     </ul>
                                 </li> 
 								<li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="blog.html">Blog List</a></li>
+                                        <li><a href="404.html">Blog List</a></li>
 										<li><a href="blog-single.html">Blog Single</a></li>
                                     </ul>
                                 </li> 
                                 <li class="dropdown"><a href="#">Services<i class="fa fa-angle-down"></i></a>
                                     
-                                    <ul role="menu" class="sub-menu">
-                                    
-                                        <li><a ng-class="{active: matchesRoute('Clients')}" href="#/Clients" data-toggle="offcanvas">Client</a></li>
+                                    <ul role="menu" class="sub-menu">                                   
 										<li><a ng-class="{active: matchesRoute('Commandess')}" href="#/Commandess" data-toggle="offcanvas">Commandes</a></li>
 										<li><a ng-class="{active: matchesRoute('Produits')}" href="#/Produits" data-toggle="offcanvas">Produits</a></li>
-										<li><a ng-class="{active: matchesRoute('Producteurs')}" href="#/Producteurs" data-toggle="offcanvas">Producteurs</a></li>
 										<li><a ng-class="{active: matchesRoute('CategorieProduits')}" href="#/CategorieProduits" data-toggle="offcanvas">CategorieProduits</a></li>
 										<li><a ng-class="{active: matchesRoute('PrixRegions')}" href="#/PrixRegions" data-toggle="offcanvas">Prix-Moyen</a></li>
 										<li><a ng-class="{active: matchesRoute('PrixPeriodes')}" href="#/PrixPeriodes" data-toggle="offcanvas">Prix-Periode</a></li>
                                    
                                     </ul>
                                 </li> 
-								<li><a href="views/html/404.html">404</a></li>
-								<li><a href="contact-us.html">Contact</a></li>
+								<li><a href="404.html">404</a></li>
+								<li><a href="#/contact">Contact</a></li>
 							</ul>
 						</div>
 					</div>
@@ -170,7 +175,7 @@
 			<div class="row">
 				<div class="col-sm-3">
 					<div class="left-sidebar">
-						<h2>Categorie</h2>
+						<h2>Categorie Produit</h2>
 						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
 							<div class="panel panel-default">
 								<div class="panel-heading">
@@ -237,9 +242,75 @@
 								</div>
 							</div>
 						</div><!--/category-products-->
-					
+					<h2>Categorie Fournisseurs</h2>
+						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a data-toggle="collapse" data-parent="#accordian" href="#sportswear">
+											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
+											Produits
+										</a>
+									</h4>
+								</div>
+								<div id="sportswear" class="panel-collapse collapse">
+									<div class="panel-body">
+										<ul>
+											<li><a href="#">Produit</a></li>
+											<li><a href="#">Liste produit </a></li>
+											<li><a href="#">Modifier Produit </a></li>
+
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a data-toggle="collapse" data-parent="#accordian" href="#mens">
+											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
+											Mens
+										</a>
+									</h4>
+								</div>
+								<div id="mens" class="panel-collapse collapse">
+									<div class="panel-body">
+										<ul>
+											<li><a href="#">Fendi</a></li>
+											<li><a href="#">Guess</a></li>
+											<li><a href="#">Valentino</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a data-toggle="collapse" data-parent="#accordian" href="#womens">
+											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
+											Womens
+										</a>
+									</h4>
+								</div>
+								<div id="womens" class="panel-collapse collapse">
+									<div class="panel-body">
+										<ul>
+											<li><a href="#">Fendi</a></li>
+											<li><a href="#">Guess</a></li>
+
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title"><a href="#">Shoes</a></h4>
+								</div>
+							</div>
+						</div><!--/category-fournisseurs-->
 						<div class="brands_products"><!--brands_products-->
-							<h2>Brands</h2>
+							<h2>Clients</h2>
 							<div class="brands-name">
 								<ul class="nav nav-pills nav-stacked">
 									<li><a href="#"> <span class="pull-right">(50)</span>Acne</a></li>
@@ -280,8 +351,8 @@
 				<div class="row">
 					<div class="col-sm-2">
 						<div class="companyinfo">
-							<h2><span>e</span>-shopper</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor</p>
+							<h2><span>agro</span>-book</h2>
+							<p>La puissance de la communication agricole</p>
 						</div>
 					</div>
 					<div class="col-sm-7">
@@ -289,14 +360,14 @@
 							<div class="video-gallery text-center">
 								<a href="#">
 									<div class="iframe-img">
-										<img src="images/home/iframe1.png" alt="" />
+										<img src="images/home/iframes1.png" alt="" />
 									</div>
 									<div class="overlay-icon">
 										<i class="fa fa-play-circle-o"></i>
 									</div>
 								</a>
 								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
+								<h2>14 SEPT 2014</h2>
 							</div>
 						</div>
 						
@@ -310,7 +381,7 @@
 										<i class="fa fa-play-circle-o"></i>
 									</div>
 								</a>
-								<p>Circle of Hands</p>
+								<p>Plantation de Djombe Penja</p>
 								<h2>24 DEC 2014</h2>
 							</div>
 						</div>
@@ -325,7 +396,7 @@
 										<i class="fa fa-play-circle-o"></i>
 									</div>
 								</a>
-								<p>Circle of Hands</p>
+								<p>Plantation de Foumban</p>
 								<h2>24 DEC 2014</h2>
 							</div>
 						</div>
@@ -340,7 +411,7 @@
 										<i class="fa fa-play-circle-o"></i>
 									</div>
 								</a>
-								<p>Circle of Hands</p>
+								<p>Plantation de Foumban</p>
 								<h2>24 DEC 2014</h2>
 							</div>
 						</div>
@@ -348,7 +419,7 @@
 					<div class="col-sm-3">
 						<div class="address">
 							<img src="images/home/map.png" alt="" />
-							<p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
+							<p>505 S Africa Ave Cameroon Beach</p>
 						</div>
 					</div>
 				</div>
@@ -396,7 +467,7 @@
 					</div>
 					<div class="col-sm-2">
 						<div class="single-widget">
-							<h2>About Shopper</h2>
+							<h2>About Agro-Book</h2>
 							<ul class="nav nav-pills nav-stacked">
 								<li><a href="#">Company Information</a></li>
 								<li><a href="#">Careers</a></li>
@@ -408,7 +479,7 @@
 					</div>
 					<div class="col-sm-3 col-sm-offset-1">
 						<div class="single-widget">
-							<h2>About Shopper</h2>
+							<h2>About Agro-Book</h2>
 							<form action="#" class="searchform">
 								<input type="text" placeholder="Your email address" />
 								<button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
@@ -446,6 +517,7 @@
     <script src="scripts/vendor/angular-route.js"></script>
     <script src="scripts/vendor/angular-resource.js"></script>
     <script src="scripts/app.js"></script>
+    <script src="scripts/services/httpinterceptor.js"></script>
     <script src="scripts/offcanvas.js"></script>
     <script src="scripts/directives/datepicker.js"></script>
     <script src="scripts/directives/timepicker.js"></script>

@@ -16,6 +16,8 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 
 import org.mongojack.DBCursor;
+import org.mongojack.DBQuery;
+import org.mongojack.DBUpdate;
 import org.mongojack.JacksonDBCollection;
 import org.mongojack.WriteResult;
 
@@ -50,10 +52,16 @@ public class ClientEndpoint
    @Path("/{id}")
    public Response deleteById(@PathParam("id") String id)
    {
-	   JacksonDBCollection<Client, String> coll = JacksonDBCollection.wrap(dbcollection, Client.class,
+	  /* JacksonDBCollection<Client, String> coll = JacksonDBCollection.wrap(dbcollection, Client.class,
 		       String.class);
 	  // Auteur entity = coll.findAndRemove(DBQuery.is("id", id));
-	   WriteResult<Client, String> entity= coll.removeById(id);
+	   WriteResult<Client, String> entity= coll.removeById(id);*/
+	   
+	   JacksonDBCollection<Client, String> coll= JacksonDBCollection.wrap(dbcollection, Client.class, String.class);
+	      DBUpdate.Builder builder= new DBUpdate.Builder();
+	      builder.set("etat", "desactive");
+	      Client result = coll.findAndModify(DBQuery.is("_id",id), null, null, false, builder, false, false);
+	    //  Client result=coll.save(entity).getSavedObject();
 	   
       return Response.noContent().build();
    }
@@ -77,7 +85,7 @@ public class ClientEndpoint
    public List<Client> listAll()
    {
 	   JacksonDBCollection<Client, String> coll= JacksonDBCollection.wrap(dbcollection, Client.class, String.class);
-	   DBCursor<Client> results =coll.find();
+	   DBCursor<Client> results =coll.find(DBQuery.is("etat", "active"));
         List<Client> arrayList = new ArrayList<Client>();
 	   while(results.hasNext()){
     	 Client reponse= results.next(); 

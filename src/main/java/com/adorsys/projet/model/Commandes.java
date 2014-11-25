@@ -17,117 +17,125 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Commandes implements Serializable
 {
 
-   private int version = 0;
-   
-   private Set<Produit> nomproduit = new HashSet<Produit>();
+	private int version = 0;
 
-   private Set<Client> nomclient = new HashSet<Client>();
+	private Set<Produit> nomproduit = new HashSet<Produit>();
 
-   private long quantite;
+	private Set<Client> nomclient = new HashSet<Client>();
 
-   @Temporal(TemporalType.DATE)
-  
-   private Date date;
-   
-   private String id;
-	  @ObjectId
-	  @JsonProperty("_id")
-	  public String getId() {
-	    return id;
-	  }
-	  @ObjectId
-	  @JsonProperty("_id")
-	  public void setId(String id) {
-	    this.id = id;
-	  }
+	private long quantite;
 
-   public int getVersion()
-   {
-      return this.version;
-   }
+	private String etat="active";
 
-   public void setVersion(final int version)
-   {
-      this.version = version;
-   }
+	@Temporal(TemporalType.DATE)
 
-   @Override
-   public boolean equals(Object that)
-   {
-      if (this == that)
-      {
-         return true;
-      }
-      if (that == null)
-      {
-         return false;
-      }
-      if (getClass() != that.getClass())
-      {
-         return false;
-      }
-      if (id != null)
-      {
-         return id.equals(((Commandes) that).id);
-      }
-      return super.equals(that);
-   }
+	private Date date;
 
-   @Override
-   public int hashCode()
-   {
-      if (id != null)
-      {
-         return id.hashCode();
-      }
-      return super.hashCode();
-   }
+	private String id;
+	@ObjectId
+	@JsonProperty("_id")
+	public String getId() {
+		return id;
+	}
+	@ObjectId
+	@JsonProperty("_id")
+	public void setId(String id) {
+		this.id = id;
+	}
 
-   public Set<Produit> getNomproduit()
-   {
-      return this.nomproduit;
-   }
+	public int getVersion()
+	{
+		return this.version;
+	}
 
-   public void setNomproduit(final Set<Produit> nomproduit)
-   {
-      this.nomproduit = nomproduit;
-   }
+	public void setVersion(final int version)
+	{
+		this.version = version;
+	}
 
-   public Set<Client> getNomclient()
-   {
-      return this.nomclient;
-   }
+	@Override
+	public boolean equals(Object that)
+	{
+		if (this == that)
+		{
+			return true;
+		}
+		if (that == null)
+		{
+			return false;
+		}
+		if (getClass() != that.getClass())
+		{
+			return false;
+		}
+		if (id != null)
+		{
+			return id.equals(((Commandes) that).id);
+		}
+		return super.equals(that);
+	}
 
-   public void setNomclient(final Set<Client> nomclient)
-   {
-      this.nomclient = nomclient;
-   }
+	@Override
+	public int hashCode()
+	{
+		if (id != null)
+		{
+			return id.hashCode();
+		}
+		return super.hashCode();
+	}
 
-   public long getQuantite()
-   {
-      return this.quantite;
-   }
+	public Set<Produit> getNomproduit()
+	{
+		return this.nomproduit;
+	}
 
-   public void setQuantite(final long quantite)
-   {
-      this.quantite = quantite;
-   }
+	public void setNomproduit(final Set<Produit> nomproduit)
+	{
+		this.nomproduit = nomproduit;
+	}
 
-   public Date getDate()
-   {
-      return this.date;
-   }
+	public Set<Client> getNomclient()
+	{
+		return this.nomclient;
+	}
 
-   public void setDate(final Date date)
-   {
-      this.date = date;
-   }
+	public void setNomclient(final Set<Client> nomclient)
+	{
+		this.nomclient = nomclient;
+	}
 
-   @Override
-   public String toString()
-   {
-      String result = getClass().getSimpleName() + " ";
-      result += "quantite: " + quantite;
-      return result;
-   }
+	public long getQuantite()
+	{
+		return this.quantite;
+	}
+
+	public void setQuantite(final long quantite)
+	{
+		this.quantite = quantite;
+	}
+
+	public Date getDate()
+	{
+		return this.date;
+	}
+
+	public void setDate(final Date date)
+	{
+		this.date = date;
+	}
+
+	public String getEtat() {
+		return etat;
+	}
+	public void setEtat(String etat) {
+		this.etat = etat;
+	}
+	@Override
+	public String toString()
+	{
+		String result = getClass().getSimpleName() + " ";
+		result += "quantite: " + quantite;
+		return result;
+	}
 }

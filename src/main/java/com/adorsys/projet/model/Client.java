@@ -25,7 +25,10 @@ public class Client implements Serializable
 
    private String email;
    
-   public Commandes idcommandes;
+   private String etat="active";
+   
+   
+public Commandes idcommandes;
 
    private String id;
 	  @ObjectId
@@ -130,6 +133,12 @@ public class Client implements Serializable
    {
       this.email = email;
    }
+   public String getEtat() {
+		return etat;
+	}
+	public void setEtat(String etat) {
+		this.etat = etat;
+	}
 
    @Override
    public String toString()

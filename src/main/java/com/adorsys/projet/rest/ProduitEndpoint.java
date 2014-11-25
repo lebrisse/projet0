@@ -21,9 +21,12 @@ import javax.ws.rs.core.UriBuilder;
 import org.jboss.resteasy.plugins.providers.multipart.InputPart;
 import org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataInput;
 import org.mongojack.DBCursor;
+import org.mongojack.DBQuery;
+import org.mongojack.DBUpdate;
 import org.mongojack.JacksonDBCollection;
 import org.mongojack.WriteResult;
 
+import com.adorsys.projet.model.Client;
 import com.adorsys.projet.model.Produit;
 import com.adorsys.projet.util.DbCollectionUtil;
 import com.mongodb.DB;
@@ -70,10 +73,14 @@ public class ProduitEndpoint
    @Path("/{id}")
    public Response deleteById(@PathParam("id") String id)
    {
-	   JacksonDBCollection<Produit, String> coll = JacksonDBCollection.wrap(dbcollection, Produit.class,
+	  /* JacksonDBCollection<Produit, String> coll = JacksonDBCollection.wrap(dbcollection, Produit.class,
 		       String.class);
 	  // produit entity = coll.findAndRemove(DBQuery.is("id", id));
-	   WriteResult<Produit, String> entity= coll.removeById(id);
+	   WriteResult<Produit, String> entity= coll.removeById(id);*/
+	   JacksonDBCollection<Produit, String> coll= JacksonDBCollection.wrap(dbcollection, Produit.class, String.class);
+	      DBUpdate.Builder builder= new DBUpdate.Builder();
+	      builder.set("etat", "desactive");
+	      Produit result = coll.findAndModify(DBQuery.is("_id",id), null, null, false, builder, false, false);
       return Response.noContent().build();
    }
 
@@ -96,7 +103,7 @@ public class ProduitEndpoint
    public List<Produit> listAll()
    {
 	   JacksonDBCollection<Produit, String> coll= JacksonDBCollection.wrap(dbcollection, Produit.class, String.class);
-	   DBCursor<Produit> results =coll.find();
+	   DBCursor<Produit> results =coll.find(DBQuery.is("etat", "active"));
         List<Produit> arrayList = new ArrayList<Produit>();
 	   while(results.hasNext()){
     	 Produit reponse= results.next(); 

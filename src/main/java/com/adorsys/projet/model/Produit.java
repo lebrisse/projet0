@@ -32,6 +32,8 @@ public class Produit implements Serializable {
 
 	private int quantite;
 	
+	 private String etat="active";
+	
 	private File imageproduit;
 
 	private int prix;
@@ -155,6 +157,14 @@ public class Produit implements Serializable {
 
 	public void setNomproducteur(Set<Producteur> nomproducteur) {
 		this.nomproducteur = nomproducteur;
+	}
+
+	public String getEtat() {
+		return etat;
+	}
+
+	public void setEtat(String etat) {
+		this.etat = etat;
 	}
 
 	@Override
