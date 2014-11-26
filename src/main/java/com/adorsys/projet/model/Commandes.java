@@ -18,12 +18,13 @@ public class Commandes implements Serializable
 {
 
 	private int version = 0;
-
+	private String nomcommande;
 	private Set<Produit> nomproduit = new HashSet<Produit>();
 
 	private Set<Client> nomclient = new HashSet<Client>();
 
 	private long quantite;
+	private long prixproposer;
 
 	private String etat="active";
 
