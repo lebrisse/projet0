@@ -1,0 +1,80 @@
+<header ng-switch on="$location.path().indexOf('/AppeloffreAchats/new') > -1">
+    <h3 ng-switch-when="true">Create a new AppeloffreAchat</h3>
+    <h3 ng-switch-when="false">View or edit AppeloffreAchat</h3>
+</header>
+<form id="AppeloffreAchatForm" name="AppeloffreAchatForm" class="form-horizontal" role="form">
+    <div ng-show="displayError" class="alert alert-danger">
+        <strong>Error!</strong> Something broke. Retry, or cancel and start afresh.
+    </div>
+    <div class="form-group" ng-class="{'has-error': AppeloffreAchatForm.nomAppeloffre.$invalid}">
+        <label for="nomAppeloffre" class="col-sm-2 control-label">Nom_Appel_Offre</label>
+        <div id="nomAppeloffreControls" class="col-sm-10">
+            <input id="nomAppeloffre" name="nomAppeloffre" type="text" required ng-maxlength="50" class="form-control" ng-model="appeloffreAchat.nomAppeloffre" placeholder="Enter the Appel Offre Achat Name"></input>
+            <span class="help-block error" ng-show="AppeloffreAchatForm.nomAppeloffre.$error.required">required</span> 
+            <span class="help-block error" ng-show="AppeloffreAchatForm.nomAppeloffre.$error.maxlength">maximum length is 50</span>
+        </div>
+    </div>
+    <div class="form-group" ng-class="{'has-error': AppeloffreAchatForm.responsable.$invalid}">
+        <label for="responsable" class="col-sm-2 control-label">Nom_Responsable</label>
+        <div id="responsableControls" class="col-sm-10">
+            <input id="responsable" name="responsable" type="text" required ng-maxlength="50" class="form-control" ng-model="appeloffreAchat.responsable" placeholder="Enter Responsable Appel Offre Achat Name"></input>
+            <span class="help-block error" ng-show="AppeloffreAchatForm.responsable.$error.required">required</span> 
+            <span class="help-block error" ng-show="AppeloffreAchatForm.responsable.$error.maxlength">maximum length is 50</span>
+        </div>
+    </div>
+         <div class="form-group" ng-class="{'has-error': AppeloffreAchatForm.Datedebut.$invalid}">
+        <label for="Datedebut" class="col-sm-2 control-label">Date_debut</label>
+        <div id="DatedebutControls" class="col-sm-10">
+            <date id="Datedebut" name="Datedebut" required ng-model="AppeloffreAchat.Datedebut" placeholder="Enter the Appel_offre_Achat Datedebut"></date>
+            <span class="help-block error" ng-show="AppeloffreAchatForm.Datedebut.$error.required">required</span> 
+            <span class="help-block error" ng-show="AppeloffreAchatForm.Datedebut.$error.dateFormat">does not match format "yyyy-MM-dd" (e.g. 2013-12-01)</span>
+        </div>
+    </div>
+     <div class="form-group" ng-class="{'has-error': AppeloffreAchatForm.Datefin.$invalid}">
+        <label for="Datefin" class="col-sm-2 control-label">Date_fin</label>
+        <div id="DatefinControls" class="col-sm-10">
+            <date id="Datefin" name="Datefin" required ng-model="AppeloffreAchat.Datefin" placeholder="Enter the Appel_offre_Achat Datefin"></date>
+            <span class="help-block error" ng-show="AppeloffreAchatForm.Datefin.$error.required">required</span> 
+            <span class="help-block error" ng-show="AppeloffreAchatForm.Datefin.$error.dateFormat">does not match format "yyyy-MM-dd" (e.g. 2013-12-01)</span>
+        </div>
+    </div>
+     <div class="form-group" ng-class="{'has-error': AppeloffreAchatForm.prixproposer.$invalid}">
+        <label for="prixproposer" class="col-sm-2 control-label">prix_proposé</label>
+        <div id="prixproposerControls" class="col-sm-10">
+            <input id="prixproposer" name="prixproposer" type="number" required class="form-control" ng-model="appeloffreAchat.prixproposer" placeholder="Enter the prix_proposer Appel_Offre"></input>
+            <span class="help-block error" ng-show="AppeloffreAchatForm.prixproposer.$error.required">required</span> 
+            <span class="help-block error" ng-show="AppeloffreAchatForm.prixproposer.$error.number">not a number</span>
+        </div>
+    </div>
+    <div class="form-group" ng-class="{'has-error': AppeloffreAchatForm.nomproducteur.$invalid}">
+        <label for="nomproducteur" class="col-sm-2 control-label">Producteur</label>
+        <div id="nomproducteurControls" class="col-sm-10">
+        <select id="nomproducteur" name="nomproducteur" multiple class="form-control" ng-model="appeloffreAchat.nomproducteur" ng-options="p.text for p in nomproducteurSelectionList"  >
+            <option value="">Choose a Producteur</option>
+        </select>
+        </div>
+    </div>
+    <div class="form-group" ng-class="{'has-error': AppeloffreAchatForm.quantite.$invalid}">
+        <label for="quantite" class="col-sm-2 control-label">Quantite</label>
+        <div id="quantiteControls" class="col-sm-10">
+            <input id="quantite" name="quantite" type="number" required class="form-control" ng-model="appeloffreAchat.quantite" placeholder="Enter the Appel_offre Quantite"></input>
+            <span class="help-block error" ng-show="AppeloffreAchatForm.quantite.$error.required">required</span> 
+            <span class="help-block error" ng-show="AppeloffreAchatForm.quantite.$error.number">not a number</span>
+        </div>
+    </div>
+ <div class="form-group" ng-class="{'has-error': AppeloffreAchatForm.nomcommande.$invalid}">
+        <label for="nomcommande" class="col-sm-2 control-label">Ref_Commande</label>
+        <div id="nomcommandeControls" class="col-sm-10">
+        <select id="nomcommande" name="nomcommande" multiple class="form-control" ng-model="appeloffreAchat.nomcommande" ng-options="p.text for p in nomcommandeSelectionList"  >
+            <option value="">Choose a Nom_Commande</option>
+        </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button id="saveAppeloffreAchat" name="saveAppeloffreAchat" class="btn btn-primary" ng-disabled="isClean() || AppeloffreAchatForm.$invalid" ng-click="save()"><span class="glyphicon glyphicon-ok-sign"></span> Save</button>
+            <button id="cancel" name="cancel" class="btn btn-default" ng-click="cancel()"><span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
+            <button id="deleteAppeloffreAchat" name="deleteAppeloffreAchat" class="btn btn-danger" ng-show="appeloffreAchat.id" ng-click="remove()"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+        </div>
+    <div>
+</form>

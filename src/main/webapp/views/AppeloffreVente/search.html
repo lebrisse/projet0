@@ -1,0 +1,118 @@
+<div class="form-horizontal">
+    <h1>Creer Nouveau Appel_offre Vente</h1>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-sm-2">
+            <a id="Create" name="Create" class="btn btn-primary" href="#/AppeloffreVentes/new"><span class="glyphicon glyphicon-plus-sign"></span> Create</a>
+        </div>
+    </div>
+</div>
+<hr/>
+<div>
+    <h3>Search for Appel Offre Vente</h3>
+    <form id="AppeloffreVenteSearch" class="form-horizontal">
+    <div class="form-group">
+        <label for="nomAppeloffre" class="col-sm-2 control-label">Nom_Appel_Offre</label>
+        <div class="col-sm-10">
+            <input id="nomAppeloffre" name="nomAppeloffre" class="form-control" type="text" ng-model="search.nomAppeloffre" placeholder="Enter the Nom Appel Offre"></input>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="pays" class="col-sm-2 control-label">Pays</label>
+        <div class="col-sm-10">
+            <input id="pays" name="pays" class="form-control" type="text" ng-model="search.pays" placeholder="Enter the pays "></input>
+        </div>
+    </div>
+        <div class="form-group">
+        <label for="region" class="col-sm-2 control-label">Region</label>
+        <div class="col-sm-10">
+            <select id="region" name="region" class="form-control" ng-model="search.region" ng-options="r as r for r in regionList">
+                <option value="">Choose a Region</option>
+            </select>
+        </div>
+    </div>
+        <div class="form-group">
+        <label for="ville" class="col-sm-2 control-label">Ville</label>
+        <div class="col-sm-10">
+            <input id="ville" name="ville" class="form-control" type="text" ng-model="search.ville" placeholder="Enter ville"></input>
+        </div>
+    </div>
+        <div class="form-group">
+        <label for="localite" class="col-sm-2 control-label">Localite</label>
+        <div class="col-sm-10">
+            <input id="localite" name="localite" class="form-control" type="text" ng-model="search.localite" placeholder="Enter localite "></input>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Datepub" class="col-sm-2 control-label">Date_publication</label>
+        <div class="col-sm-10">
+            <input id="Datepub" name="Datepub" class="form-control" type="text" ng-model="search.Datepub" placeholder="Enter  Date publication"></input>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="prixvente" class="col-sm-2 control-label">Prix Vente</label>
+        <div class="col-sm-10">
+            <input id="prixvente" name="prixvente" class="form-control" type="text" ng-model="search.prixvente" placeholder="Enter the prix Vente"></input>
+        </div>
+    </div>
+   <div class="form-group">
+        <label for="producteur" class="col-sm-2 control-label">Producteur</label>
+        <div class="col-sm-10">
+            <select id="producteur" name="producteur" class="form-control" ng-model="search.producteur" ng-options="p as p.nomproducteur for p in producteurList">
+                <option value="">Choose a Producteur</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="nomcommande" class="col-sm-2 control-label">Commande</label>
+        <div class="col-sm-10">
+            <select id="nomcommande" name="nomcommande" class="form-control" ng-model="search.nomcommande" ng-options="p as p.nomcommande for p in commandeList">
+                <option value="">Choose a Commande</option>
+            </select>
+        </div>
+    </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-sm-10">
+                <a id="Search" name="Search" class="btn btn-primary" ng-click="performSearch()"><span class="glyphicon glyphicon-search"></span> Search</a>
+            </div>
+        </div>
+    </form>
+</div>
+<div id="search-results">
+    <div class="table-responsive">
+        <table class="table table-responsive table-bordered table-striped clearfix">
+            <thead>
+                <tr>
+                    <th>NomAppeloffre</th>                   
+                    <th>Pays</th>
+                    <th>Region</th>
+					<th>Localité</th>
+                    <th>Prix vente</th>
+                    <th>Quantite</th>
+                    <th>Date_pub</th>
+                </tr>
+            </thead>
+            <tbody id="search-results-body">
+                <tr ng-repeat="result in searchResults | searchFilter:searchResults | startFrom:currentPage*pageSize | limitTo:pageSize">
+                    <td><a href="#/AppeloffreVentes/edit/{{result.id}}">{{result.nomAppeloffre}}</a></td>
+                    <td><a href="#/AppeloffreVentes/edit/{{result.id}}">{{result.pays}}</a></td>
+                    <td><a href="#/AppeloffreVentes/edit/{{result.id}}">{{result.region}}</a></td>
+                    <td><a href="#/AppeloffreVentes/edit/{{result.id}}">{{result.localite}}</a></td>
+                    <td><a href="#/AppeloffreVentes/edit/{{result.id}}">{{result.prixvente}}</a></td>
+                    <td><a href="#/AppeloffreVentes/edit/{{result.id}}">{{result.quantite}}Fcfa</a></td>
+                   <td><a href="#/AppeloffreVentes/edit/{{result.id}}">{{result.Datepub| date:'dd-MM-yyyy'}}</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <ul class="pagination pagination-centered">
+        <li ng-class="{disabled:currentPage == 0}">
+            <a id="prev" href ng-click="previous()">«</a>
+        </li>
+        <li ng-repeat="n in pageRange" ng-class="{active:currentPage == n}" ng-click="setPage(n)">
+            <a href ng-bind="n + 1">1</a>
+        </li>
+        <li ng-class="{disabled: currentPage == (numberOfPages() - 1)}">
+            <a id="next" href ng-click="next()">»</a>
+        </li>
+    </ul>
+</div>
