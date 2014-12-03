@@ -29,8 +29,8 @@ public class Commandes implements Serializable
 	private String etat="active";
 
 	@Temporal(TemporalType.DATE)
-
-	private Date date;
+	private Date datedebut;
+	private Date datefin;
 
 	private String id;
 	@ObjectId
@@ -116,16 +116,30 @@ public class Commandes implements Serializable
 		this.quantite = quantite;
 	}
 
-	public Date getDate()
-	{
-		return this.date;
+	public String getNomcommande() {
+		return nomcommande;
 	}
-
-	public void setDate(final Date date)
-	{
-		this.date = date;
+	public void setNomcommande(String nomcommande) {
+		this.nomcommande = nomcommande;
 	}
-
+	public long getPrixproposer() {
+		return prixproposer;
+	}
+	public void setPrixproposer(long prixproposer) {
+		this.prixproposer = prixproposer;
+	}
+	public Date getDatedebut() {
+		return datedebut;
+	}
+	public void setDatedebut(Date datedebut) {
+		this.datedebut = datedebut;
+	}
+	public Date getDatefin() {
+		return datefin;
+	}
+	public void setDatefin(Date datefin) {
+		this.datefin = datefin;
+	}
 	public String getEtat() {
 		return etat;
 	}

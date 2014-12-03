@@ -17,7 +17,7 @@ public class AppeloffreAchat implements Serializable{
 	private int version = 0;
 
 	private String nomAppeloffre;
-	private String Responsable;
+	private String responsable;
 
 	@Temporal(TemporalType.TIMESTAMP)
 
@@ -81,6 +81,14 @@ public class AppeloffreAchat implements Serializable{
 		this.version = version;
 	}
 
+	public String getResponsable() {
+		return responsable;
+	}
+
+	public void setResponsable(String responsable) {
+		this.responsable = responsable;
+	}
+
 	public String getNomAppeloffre() {
 		return nomAppeloffre;
 	}
@@ -89,12 +97,12 @@ public class AppeloffreAchat implements Serializable{
 		this.nomAppeloffre = nomAppeloffre;
 	}
 
-	public String getResponsable() {
-		return Responsable;
+	public String getresponsable() {
+		return responsable;
 	}
 
-	public void setResponsable(String responsable) {
-		Responsable = responsable;
+	public void setresponsable(String responsable) {
+		this.responsable = responsable;
 	}
 
 	public Date getDatedebut() {
@@ -137,15 +145,29 @@ public class AppeloffreAchat implements Serializable{
 		this.nomcommande = nomcommande;
 	}
 
+	public long getPrixproposer() {
+		return prixproposer;
+	}
+
+	public void setPrixproposer(long prixproposer) {
+		this.prixproposer = prixproposer;
+	}
+
+	public long getQuantite() {
+		return quantite;
+	}
+
+	public void setQuantite(long quantite) {
+		this.quantite = quantite;
+	}
+
 	@Override
 	public String toString() {
 		String result = getClass().getSimpleName() + " ";
 		if (nomAppeloffre != null && !nomAppeloffre.trim().isEmpty())
 			result += "nomAppeloffre: " + nomAppeloffre;
-		if (Responsable != null && !Responsable.trim().isEmpty())
-			result += ", Responsable: " + Responsable;
-		if (nomcommande != null && !Responsable.trim().isEmpty())
-			result += ", Responsable: " + Responsable;
+		if (responsable != null && !responsable.trim().isEmpty())
+			result += ", Responsable: " + responsable;
 		result += ", quantite: " + quantite;
 	
 		return result;

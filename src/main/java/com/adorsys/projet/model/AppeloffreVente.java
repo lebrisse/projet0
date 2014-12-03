@@ -17,11 +17,16 @@ public class AppeloffreVente implements Serializable{
 	private int version = 0;
 
 	private String nomAppeloffre;
-	private String Responsable;
+	private String localite;
+	private String ville;
+	private Region region;
+	private Pays pays;
 	
 	private String etat="active";
 	private int prixvente;
+	@Temporal(TemporalType.TIMESTAMP)
 
+	private Date Datepub;
 	private Set<Producteur> nomproducteur = new HashSet<Producteur>();
 
 	//   private String produit;
@@ -85,14 +90,6 @@ public class AppeloffreVente implements Serializable{
 		this.nomAppeloffre = nomAppeloffre;
 	}
 
-	public String getResponsable() {
-		return Responsable;
-	}
-
-	public void setResponsable(String responsable) {
-		Responsable = responsable;
-	}
-
 	public String getEtat() {
 		return etat;
 	}
@@ -117,15 +114,69 @@ public class AppeloffreVente implements Serializable{
 		this.nomcommande = nomcommande;
 	}
 
+	public int getPrixvente() {
+		return prixvente;
+	}
+
+	public void setPrixvente(int prixvente) {
+		this.prixvente = prixvente;
+	}
+
+	public long getQuantite() {
+		return quantite;
+	}
+
+	public void setQuantite(long quantite) {
+		this.quantite = quantite;
+	}
+
+	public String getLocalite() {
+		return localite;
+	}
+
+	public void setLocalite(String localite) {
+		this.localite = localite;
+	}
+
+	public String getVille() {
+		return ville;
+	}
+
+	public void setVille(String ville) {
+		this.ville = ville;
+	}
+
+	public Region getRegion() {
+		return region;
+	}
+
+	public void setRegion(Region region) {
+		this.region = region;
+	}
+
+	public Pays getPays() {
+		return pays;
+	}
+
+	public void setPays(Pays pays) {
+		this.pays = pays;
+	}
+
+	public Date getDatepub() {
+		return Datepub;
+	}
+
+	public void setDatepub(Date datepub) {
+		Datepub = datepub;
+	}
+
 	@Override
 	public String toString() {
 		String result = getClass().getSimpleName() + " ";
 		if (nomAppeloffre != null && !nomAppeloffre.trim().isEmpty())
 			result += "nomAppeloffre: " + nomAppeloffre;
-		if (Responsable != null && !Responsable.trim().isEmpty())
-			result += ", Responsable: " + Responsable;
-		if (nomcommande != null && !Responsable.trim().isEmpty())
-			result += ", Responsable: " + Responsable;
+		if (localite != null && !localite.trim().isEmpty())
+			result += ", localite: " + localite;
 		result += ", quantite: " + quantite;
 	
 		return result;

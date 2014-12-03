@@ -24,6 +24,14 @@ public class Producteur implements Serializable
    private Region region;
 
    private String ville;
+   
+   private Pays pays;
+   
+   private String localite;
+   
+   private Typeproducteur type_producteur;
+   
+   private Type_exploitation type_exploitation;
 
    private String email;
    
@@ -135,8 +143,38 @@ public class Producteur implements Serializable
    {
       this.email = email;
    }
-
-   @Override
+   
+   public Pays getPays() {
+	return pays;
+}
+public void setPays(Pays pays) {
+	this.pays = pays;
+}
+public String getLocalite() {
+	return localite;
+}
+public void setLocalite(String localite) {
+	this.localite = localite;
+}
+public Typeproducteur getType_producteur() {
+	return type_producteur;
+}
+public void setType_producteur(Typeproducteur type_producteur) {
+	this.type_producteur = type_producteur;
+}
+public Type_exploitation getType_exploitation() {
+	return type_exploitation;
+}
+public void setType_exploitation(Type_exploitation type_exploitation) {
+	this.type_exploitation = type_exploitation;
+}
+public String getStatus() {
+	return status;
+}
+public void setStatus(String status) {
+	this.status = status;
+}
+@Override
    public String toString()
    {
       String result = getClass().getSimpleName() + " ";

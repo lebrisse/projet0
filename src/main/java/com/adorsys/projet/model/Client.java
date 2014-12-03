@@ -22,6 +22,12 @@ public class Client implements Serializable
    private Region region;
 
    private String ville;
+   
+   private Pays pays;
+   
+   private String localite;
+   
+   private Typeclient typeclient;
 
    private String email;
    
@@ -140,7 +146,31 @@ public Commandes idcommandes;
 		this.etat = etat;
 	}
 
-   @Override
+   public Pays getPays() {
+		return pays;
+	}
+	public void setPays(Pays pays) {
+		this.pays = pays;
+	}
+	public String getLocalite() {
+		return localite;
+	}
+	public void setLocalite(String localite) {
+		this.localite = localite;
+	}
+	public Typeclient getTypeclient() {
+		return typeclient;
+	}
+	public void setTypeclient(Typeclient typeclient) {
+		this.typeclient = typeclient;
+	}
+	public Commandes getIdcommandes() {
+		return idcommandes;
+	}
+	public void setIdcommandes(Commandes idcommandes) {
+		this.idcommandes = idcommandes;
+	}
+@Override
    public String toString()
    {
       String result = getClass().getSimpleName() + " ";
