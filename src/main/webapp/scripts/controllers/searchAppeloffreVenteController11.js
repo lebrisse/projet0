@@ -1,5 +1,4 @@
 
-
 angular.module('projetagricole').controller('SearchAppeloffreVenteController', function($scope, $http, AppeloffreVenteResource , ProducteurResource , CommandesResource) {
 
     $scope.search={};

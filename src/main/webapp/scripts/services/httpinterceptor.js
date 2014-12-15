@@ -1,7 +1,7 @@
 angular.module('projetagricole').factory('httpinterceptor',['$q','$location',function($q,$location){
 	 return function (promise) {
 	      var success = function (response) {
-	    	  $location.url('/Produits');
+	    	  $location.url('/');
 	          return response;
 	      },
 

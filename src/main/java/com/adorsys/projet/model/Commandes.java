@@ -18,19 +18,19 @@ public class Commandes implements Serializable
 {
 
 	private int version = 0;
-	private String nomcommande;
+	private String nomcommande ="brice";
 	private Set<Produit> nomproduit = new HashSet<Produit>();
 
 	private Set<Client> nomclient = new HashSet<Client>();
 
 	private long quantite;
-	private long prixproposer;
+	private long prixproposer=1500;
 
 	private String etat="active";
 
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date datedebut;
-	private Date datefin;
+	//private Date datefin;
 
 	private String id;
 	@ObjectId
@@ -134,12 +134,7 @@ public class Commandes implements Serializable
 	public void setDatedebut(Date datedebut) {
 		this.datedebut = datedebut;
 	}
-	public Date getDatefin() {
-		return datefin;
-	}
-	public void setDatefin(Date datefin) {
-		this.datefin = datefin;
-	}
+
 	public String getEtat() {
 		return etat;
 	}

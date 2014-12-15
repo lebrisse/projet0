@@ -6,23 +6,21 @@
     <div ng-show="displayError" class="alert alert-danger">
         <strong>Error!</strong> Something broke. Retry, or cancel and start afresh.
     </div>
-    <div class="form-group" ng-class="{'has-error': AppeloffreVenteForm.nomAppeloffre.$invalid}">
-        <label for="nomAppeloffre" class="col-sm-2 control-label">Nom_Appel_Offre</label>
-        <div id="nomAppeloffreControls" class="col-sm-10">
-            <input id="nomAppeloffre" name="nomAppeloffre" type="text" required ng-maxlength="50" class="form-control" ng-model="appeloffreVente.nomAppeloffre" placeholder="Enter the Appel Offre vente Name"></input>
-            <span class="help-block error" ng-show="AppeloffreVenteForm.nomAppeloffre.$error.required">required</span> 
-            <span class="help-block error" ng-show="AppeloffreVenteForm.nomAppeloffre.$error.maxlength">maximum length is 50</span>
+    <div class="form-group" ng-class="{'has-error': AppeloffreVenteForm.libelleoffre.$invalid}">
+        <label for="libelleoffre" class="col-sm-2 control-label">Libelleoffre</label>
+        <div id="libelleoffreControls" class="col-sm-10">
+            <input id="libelleoffre" name="libelleoffre" type="text" class="form-control" ng-model="appeloffreVente.libelleoffre" placeholder="Enter the AppeloffreVente Libelleoffre"></input>
         </div>
     </div>
     <div class="form-group" ng-class="{'has-error': AppeloffreVenteForm.pays.$invalid}">
         <label for="pays" class="col-sm-2 control-label">Pays</label>
         <div id="paysControls" class="col-sm-10">
-            <input id="pays" name="pays" type="text" required ng-maxlength="50" class="form-control" ng-model="appeloffreVente.pays" placeholder="Enter pays Appel Offre Vente Name"></input>
-            <span class="help-block error" ng-show="AppeloffreVenteForm.pays.$error.required">required</span> 
-            <span class="help-block error" ng-show="AppeloffreVenteForm.pays.$error.maxlength">maximum length is 50</span>
+        <select id="pays" name="pays" class="form-control" ng-model="appeloffreVente.pays" ng-options="p for p in paysList"  >
+            <option value="">Choose a Pays</option>
+        </select>
         </div>
     </div>
-          <div class="form-group" ng-class="{'has-error': AppeloffreVenteForm.region.$invalid}">
+    <div class="form-group" ng-class="{'has-error': AppeloffreVenteForm.region.$invalid}">
         <label for="region" class="col-sm-2 control-label">Region</label>
         <div id="regionControls" class="col-sm-10">
         <select id="region" name="region" class="form-control" ng-model="appeloffreVente.region" ng-options="r for r in regionList"  >
@@ -30,60 +28,42 @@
         </select>
         </div>
     </div>
-           <div class="form-group" ng-class="{'has-error': AppeloffreVenteForm.ville.$invalid}">
+    <div class="form-group" ng-class="{'has-error': AppeloffreVenteForm.ville.$invalid}">
         <label for="ville" class="col-sm-2 control-label">Ville</label>
         <div id="villeControls" class="col-sm-10">
-            <input id="ville" name="ville" type="text" required ng-maxlength="50" class="form-control" ng-model="appeloffreVente.ville" placeholder="Enter ville Appel Offre Vente Name"></input>
-            <span class="help-block error" ng-show="AppeloffreVenteForm.ville.$error.required">required</span> 
-            <span class="help-block error" ng-show="AppeloffreVenteForm.ville.$error.maxlength">maximum length is 50</span>
+            <input id="ville" name="ville" type="text" class="form-control" ng-model="appeloffreVente.ville" placeholder="Enter the AppeloffreVente Ville"></input>
         </div>
     </div>
-     <div class="form-group" ng-class="{'has-error': AppeloffreVenteForm.localite.$invalid}">
-        <label for="localite" class="col-sm-2 control-label">Localité</label>
+    <div class="form-group" ng-class="{'has-error': AppeloffreVenteForm.localite.$invalid}">
+        <label for="localite" class="col-sm-2 control-label">Localite</label>
         <div id="localiteControls" class="col-sm-10">
-            <input id="localite" name="localite" type="text" required ng-maxlength="50" class="form-control" ng-model="appeloffreVente.localite" placeholder="Enter localite Appel Offre Vente Name"></input>
-            <span class="help-block error" ng-show="AppeloffreVenteForm.localite.$error.required">required</span> 
-            <span class="help-block error" ng-show="AppeloffreVenteForm.localite.$error.maxlength">maximum length is 50</span>
+            <input id="localite" name="localite" type="text" class="form-control" ng-model="appeloffreVente.localite" placeholder="Enter the AppeloffreVente Localite"></input>
         </div>
     </div>
-     <div class="form-group" ng-class="{'has-error': AppeloffreVenteForm.Datepub.$invalid}">
-        <label for="Datepub" class="col-sm-2 control-label">Date_Publication</label>
-        <div id="DatepubControls" class="col-sm-10">
-            <date id="Datepub" name="Datepub" required ng-model="AppeloffreVente.Datepub" placeholder="Enter the Appel_offre_Achat Date publication"></date>
-            <span class="help-block error" ng-show="AppeloffreVenteForm.Datepub.$error.required">required</span> 
-            <span class="help-block error" ng-show="AppeloffreVenteForm.Datepub.$error.dateFormat">does not match format "yyyy-MM-dd" (e.g. 2013-12-01)</span>
-        </div>
-    </div>
-     <div class="form-group" ng-class="{'has-error': AppeloffreVenteForm.prixvente.$invalid}">
-        <label for="prixvente" class="col-sm-2 control-label">prix_vente</label>
+    <div class="form-group" ng-class="{'has-error': AppeloffreVenteForm.prixvente.$invalid}">
+        <label for="prixvente" class="col-sm-2 control-label">Prixvente</label>
         <div id="prixventeControls" class="col-sm-10">
-            <input id="prixvente" name="prixvente" type="number" required class="form-control" ng-model="appeloffreVente.prixvente" placeholder="Enter the prix_vente Appel_Offre"></input>
-            <span class="help-block error" ng-show="AppeloffreVenteForm.prixvente.$error.required">required</span> 
+            <input id="prixvente" name="prixvente" type="number" class="form-control" ng-model="appeloffreVente.prixvente" placeholder="Enter the AppeloffreVente Prixvente"></input>
             <span class="help-block error" ng-show="AppeloffreVenteForm.prixvente.$error.number">not a number</span>
         </div>
     </div>
-    <div class="form-group" ng-class="{'has-error': AppeloffreVenteForm.nomproducteur.$invalid}">
-        <label for="nomproducteur" class="col-sm-2 control-label">Producteur</label>
-        <div id="nomproducteurControls" class="col-sm-10">
-        <select id="nomproducteur" name="nomproducteur" multiple class="form-control" ng-model="appeloffreVente.nomproducteur" ng-options="p.text for p in nomproducteurSelectionList"  >
-            <option value="">Choose a Producteur</option>
-        </select>
+    <div class="form-group" ng-class="{'has-error': AppeloffreVenteForm.disponibilite.$invalid}">
+        <label for="disponibilite" class="col-sm-2 control-label">Disponibilite</label>
+        <div id="disponibiliteControls" class="col-sm-10">
+            <input id="disponibilite" name="disponibilite" type="text" class="form-control" ng-model="appeloffreVente.disponibilite" placeholder="Enter the AppeloffreVente Disponibilite"></input>
         </div>
     </div>
     <div class="form-group" ng-class="{'has-error': AppeloffreVenteForm.quantite.$invalid}">
         <label for="quantite" class="col-sm-2 control-label">Quantite</label>
         <div id="quantiteControls" class="col-sm-10">
-            <input id="quantite" name="quantite" type="number" required class="form-control" ng-model="appeloffreVente.quantite" placeholder="Enter the Appel_offre Quantite"></input>
-            <span class="help-block error" ng-show="AppeloffreVenteForm.quantite.$error.required">required</span> 
+            <input id="quantite" name="quantite" type="number" class="form-control" ng-model="appeloffreVente.quantite" placeholder="Enter the AppeloffreVente Quantite"></input>
             <span class="help-block error" ng-show="AppeloffreVenteForm.quantite.$error.number">not a number</span>
         </div>
     </div>
- <div class="form-group" ng-class="{'has-error': AppeloffreVenteForm.nomcommande.$invalid}">
-        <label for="nomcommande" class="col-sm-2 control-label">Ref_Commande</label>
-        <div id="nomcommandeControls" class="col-sm-10">
-        <select id="nomcommande" name="nomcommande" multiple class="form-control" ng-model="appeloffreVente.nomcommande" ng-options="p.text for p in nomcommandeSelectionList"  >
-            <option value="">Choose a Nom_Commande</option>
-        </select>
+    <div class="form-group" ng-class="{'has-error': AppeloffreVenteForm.nomproducteur.$invalid}">
+        <label for="nomproducteur" class="col-sm-2 control-label">Nomproducteur</label>
+        <div id="nomproducteurControls" class="col-sm-10">
+            <input id="nomproducteur" name="nomproducteur" type="text" class="form-control" ng-model="appeloffreVente.nomproducteur" placeholder="Enter the AppeloffreVente Nomproducteur"></input>
         </div>
     </div>
     <div class="form-group">

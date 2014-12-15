@@ -12,7 +12,7 @@ import org.mongojack.ObjectId;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class AppeloffreVente implements Serializable{
+public class AppeloffreVente11 implements Serializable{
 
 	private int version = 0;
 
@@ -60,7 +60,7 @@ public class AppeloffreVente implements Serializable{
 			return false;
 		}
 		if (id != null) {
-			return id.equals(((AppeloffreVente) that).id);
+			return id.equals(((AppeloffreVente11) that).id);
 		}
 		return super.equals(that);
 	}
@@ -150,7 +150,7 @@ public class AppeloffreVente implements Serializable{
 		return region;
 	}
 
-	public void setRegion(Region region) {
+	public void setRegion(final Region region) {
 		this.region = region;
 	}
 

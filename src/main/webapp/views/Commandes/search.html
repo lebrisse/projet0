@@ -35,7 +35,7 @@
             <tbody id="search-results-body">
                 <tr ng-repeat="result in searchResults | searchFilter:searchResults | startFrom:currentPage*pageSize | limitTo:pageSize">
                     <td><a href="#/Commandess/edit/{{result.id}}">{{result.quantite}}</a></td>
-                    <td><a href="#/Commandess/edit/{{result.id}}">{{result.date| date:'mediumDate'}}</a></td>
+                    <td><a href="#/Commandess/edit/{{result.id}}">{{result.datedebut| datedebut:'mediumDate'}}</a></td>
                 </tr>
             </tbody>
         </table>

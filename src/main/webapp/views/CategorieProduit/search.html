@@ -29,11 +29,13 @@
             <thead>
                 <tr>
                     <th>Nomcategorie</th>
+                    <th>Nomcategorie</th>
                 </tr>
             </thead>
             <tbody id="search-results-body">
                 <tr ng-repeat="result in searchResults | searchFilter:searchResults | startFrom:currentPage*pageSize | limitTo:pageSize">
                     <td><a href="#/CategorieProduits/edit/{{result.id}}">{{result.nomcategorie}}</a></td>
+                    <td><a href="#/CategorieProduits/edit/{{result.id}}">{{result.produits.prix}}</a></td>
                 </tr>
             </tbody>
         </table>

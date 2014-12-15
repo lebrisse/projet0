@@ -21,7 +21,7 @@ import org.mongojack.DBUpdate;
 import org.mongojack.JacksonDBCollection;
 import org.mongojack.WriteResult;
 
-import com.adorsys.projet.model.AppeloffreVente;
+import com.adorsys.projet.model.AppeloffreVente11;
 import com.adorsys.projet.util.DbCollectionUtil;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
@@ -31,21 +31,21 @@ import com.mongodb.DBCollection;
  */
 @Stateless
 @Path("/appeloffreVentes")
-public class AppeloffreVenteEndpoint
+public class AppeloffreVenteEndpoint11
 {
 	private DB db  = DbCollectionUtil.getdb();
 	DBCollection dbcollection = db.getCollection("appeloffreVente");
 
 	@POST
 	@Consumes("application/json")
-	public Response create(AppeloffreVente entity)
+	public Response create(AppeloffreVente11 entity)
 	{
-		JacksonDBCollection<AppeloffreVente, String> coll = JacksonDBCollection.wrap(dbcollection, AppeloffreVente.class,
+		JacksonDBCollection<AppeloffreVente11, String> coll = JacksonDBCollection.wrap(dbcollection, AppeloffreVente11.class,
 				String.class);
-		WriteResult<AppeloffreVente, String> result = coll.insert(entity);
+		WriteResult<AppeloffreVente11, String> result = coll.insert(entity);
 		entity = result.getSavedObject();
 
-		return Response.created(UriBuilder.fromResource(AppeloffreVenteEndpoint.class).path(String.valueOf(entity.getId())).build()).build();
+		return Response.created(UriBuilder.fromResource(AppeloffreVenteEndpoint11.class).path(String.valueOf(entity.getId())).build()).build();
 	}
 
 	@DELETE
@@ -57,10 +57,10 @@ public class AppeloffreVenteEndpoint
 	  // Auteur entity = coll.findAndRemove(DBQuery.is("id", id));
 	   WriteResult<Client, String> entity= coll.removeById(id);*/
 
-		JacksonDBCollection<AppeloffreVente, String> coll= JacksonDBCollection.wrap(dbcollection, AppeloffreVente.class, String.class);
+		JacksonDBCollection<AppeloffreVente11, String> coll= JacksonDBCollection.wrap(dbcollection, AppeloffreVente11.class, String.class);
 		DBUpdate.Builder builder= new DBUpdate.Builder();
 		builder.set("etat", "desactive");
-		AppeloffreVente result = coll.findAndModify(DBQuery.is("_id",id), null, null, false, builder, false, false);
+		AppeloffreVente11 result = coll.findAndModify(DBQuery.is("_id",id), null, null, false, builder, false, false);
 		//  Client result=coll.save(entity).getSavedObject();
 
 		return Response.noContent().build();
@@ -72,23 +72,23 @@ public class AppeloffreVenteEndpoint
 	public Response findById(@PathParam("id") String id)
 	{
 		String j = id+"";
-		JacksonDBCollection<AppeloffreVente, String> coll = JacksonDBCollection.wrap(dbcollection, AppeloffreVente.class,
+		JacksonDBCollection<AppeloffreVente11, String> coll = JacksonDBCollection.wrap(dbcollection, AppeloffreVente11.class,
 				String.class);
 
-		AppeloffreVente entity = coll.findOneById(j);
+		AppeloffreVente11 entity = coll.findOneById(j);
 
 		return Response.ok(entity).build();
 	}
 
 	@GET
 	@Produces("application/json")
-	public List<AppeloffreVente> listAll()
+	public List<AppeloffreVente11> listAll()
 	{
-		JacksonDBCollection<AppeloffreVente, String> coll= JacksonDBCollection.wrap(dbcollection, AppeloffreVente.class, String.class);
-		DBCursor<AppeloffreVente> results =coll.find(DBQuery.is("etat", "active"));
-		List<AppeloffreVente> arrayList = new ArrayList<AppeloffreVente>();
+		JacksonDBCollection<AppeloffreVente11, String> coll= JacksonDBCollection.wrap(dbcollection, AppeloffreVente11.class, String.class);
+		DBCursor<AppeloffreVente11> results =coll.find(DBQuery.is("etat", "active"));
+		List<AppeloffreVente11> arrayList = new ArrayList<AppeloffreVente11>();
 		while(results.hasNext()){
-			AppeloffreVente reponse= results.next(); 
+			AppeloffreVente11 reponse= results.next(); 
 			arrayList.add(reponse);
 		}
 		return arrayList;
@@ -97,12 +97,12 @@ public class AppeloffreVenteEndpoint
 	@PUT
 	@Path("/{id}")
 	@Consumes("application/json")
-	public Response update(AppeloffreVente entity)
+	public Response update(AppeloffreVente11 entity)
 	{
-		JacksonDBCollection<AppeloffreVente, String> coll= JacksonDBCollection.wrap(dbcollection, AppeloffreVente.class, String.class);
+		JacksonDBCollection<AppeloffreVente11, String> coll= JacksonDBCollection.wrap(dbcollection, AppeloffreVente11.class, String.class);
 		// DBUpdate.Builder builder= new DBUpdate.Builder();
 
-		AppeloffreVente result=coll.save(entity).getSavedObject();
+		AppeloffreVente11 result=coll.save(entity).getSavedObject();
 		return Response.noContent().build();
 	}
 }

@@ -17,10 +17,7 @@
     <link href="css/animate.css" rel="stylesheet">
 	<link href="css/main.css" rel="stylesheet">
 	<link href="css/responsive.css" rel="stylesheet">
-    <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
-    <![endif]-->       
+     
     <link rel="shortcut icon" href="images/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
@@ -28,7 +25,6 @@
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
 </head><!--/head-->
 <body>
-
     	<header id="header"><!--header-->
 		<div class="header_top"><!--header_top-->
 			<div class="container">
@@ -36,8 +32,8 @@
 					<div class="col-sm-6">
 						<div class="contactinfo">
 							<ul class="nav nav-pills">
-								<li><a href="#"><i class="fa fa-phone"></i> +23796138857 CMr</a></li>
-								<li><a href="#"><i class="fa fa-envelope"></i> info@domain.com</a></li>
+								<li><a href="#"><i class="fa fa-phone"></i> +23796138857 cmr</a></li>
+								<li><a href="#"><i class="fa fa-envelope"></i> agrobook@domain.com</a></li>
 							</ul>
 						</div>
 					</div>
@@ -97,11 +93,11 @@
 										<li><a href="#/Producteurs">Producteur</a></li>
                                     </ul></li>
 								<li><a href="#"><i class="fa fa-star"></i> Commandes</a></li>
-								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Infos Utiles</a></li>
 								<!--<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>-->
 								<li><a ng-class="{active: matchesRoute('connexion')}" href="#/connexion"><i class="fa fa-lock"></i> Login</a>
 								<ul role="menu" class="sub-menu">
-                                        <li><a href="#/localhost:8080/agricoleapp/logout">déconnecté</a></li>
+                                        <li><a href="#/localhost:8080/agricoleapp/logout">logout</a></li>
                                     </ul></li>
 							</ul>
 						</div>
@@ -124,33 +120,37 @@
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="index.html" class="active">Home</a></li>
-								<li class="dropdown"><a href="#">Boutique<i class="fa fa-angle-down"></i></a>
+								<li><a href="index.html" class="active">Acceuil</a></li>
+								<li class="dropdown"><a href="#">Acteurs<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="shop.html">Produits</a></li>
-										<li><a href="product-details.html">Detail Produit</a></li>
-										<li><a href="checkout.html">Checkout</a></li> 
-										<li><a href="cart.html">Cart</a></li> 
-										<li><a ng-class="{active: matchesRoute('connexion')}" href="#/connexion" data-toggle="offcanvas">Login</a></li>
-                                        <li><a href="produit.html">Produit</a></li>
+                                        <li><a href="#/Producteurs">Producteurs</a></li>
+										<li><a href="">Acteurs Externes</a></li>
+										  <li><a href="#/Clients">Client</a></li>
+										<li><a ng-class="{active: matchesRoute('connexion')}" href="#/connexion" data-toggle="offcanvas">Login</a></li>     
                                     </ul>
                                 </li> 
-								<li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
+								<li ><a href="#">Actualite<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="404.html">Blog List</a></li>
 										<li><a href="blog-single.html">Blog Single</a></li>
                                     </ul>
                                 </li> 
-                                <li class="dropdown"><a href="#">Services<i class="fa fa-angle-down"></i></a>
+                                <li class="dropdown"><a href="#">Offres<i class="fa fa-angle-down"></i></a>
                                     
                                     <ul role="menu" class="sub-menu">                                   
 										<li><a ng-class="{active: matchesRoute('Commandess')}" href="#/Commandess" data-toggle="offcanvas">Commandes</a></li>
+										<li><a ng-class="{active: matchesRoute('AppeloffreAchats')}" href="#/AppeloffreAchats" data-toggle="offcanvas">AppeloffreAchat</a></li>
+										<li><a ng-class="{active: matchesRoute('AppeloffreVentes')}" href="#/AppeloffreVentes" data-toggle="offcanvas">AppeloffreVente</a></li>
+                                   
+                                    </ul>
+                                </li> 
+                                      <li class="dropdown"><a href="#">Activites<i class="fa fa-angle-down"></i></a>
+                                    
+                                    <ul role="menu" class="sub-menu">                                   
 										<li><a ng-class="{active: matchesRoute('Produits')}" href="#/Produits" data-toggle="offcanvas">Produits</a></li>
 										<li><a ng-class="{active: matchesRoute('CategorieProduits')}" href="#/CategorieProduits" data-toggle="offcanvas">CategorieProduits</a></li>
 										<li><a ng-class="{active: matchesRoute('PrixRegions')}" href="#/PrixRegions" data-toggle="offcanvas">Prix-Moyen</a></li>
 										<li><a ng-class="{active: matchesRoute('PrixPeriodes')}" href="#/PrixPeriodes" data-toggle="offcanvas">Prix-Periode</a></li>
-										<li><a ng-class="{active: matchesRoute('AppeloffreAchats')}" href="#/AppeloffreAchats" data-toggle="offcanvas">AppeloffreAchat</a></li>
-										<li><a ng-class="{active: matchesRoute('AppeloffreVentes')}" href="#/AppeloffreVentes" data-toggle="offcanvas">AppeloffreVente</a></li>
                                    
                                     </ul>
                                 </li> 
@@ -547,7 +547,14 @@
     <script src="scripts/controllers/newProduitController.js"></script>
     <script src="scripts/controllers/searchProduitController.js"></script>
     <script src="scripts/controllers/editProduitController.js"></script>
-    
+    <script src="scripts/services/AppeloffreAchatFactory.js"></script>
+    <script src="scripts/controllers/newAppeloffreAchatController.js"></script>
+    <script src="scripts/controllers/searchAppeloffreAchatController.js"></script>
+    <script src="scripts/controllers/editAppeloffreAchatController.js"></script>
+    <script src="scripts/services/AppeloffreVenteFactory.js"></script>
+    <script src="scripts/controllers/newAppeloffreVenteController.js"></script>
+    <script src="scripts/controllers/searchAppeloffreVenteController.js"></script>
+    <script src="scripts/controllers/editAppeloffreVenteController.js"></script>
     <script src="scripts/services/PrixRegionFactory.js"></script>
     <script src="scripts/controllers/searchPrixRegionController.js"></script>
     <script src="scripts/services/PrixPeriodeFactory.js"></script>

@@ -19,14 +19,7 @@ angular.module('projetagricole').controller('NewAppeloffreVenteController', func
             });
         });
     });
-    
-   /* $scope.$watch("producteurSelection", function(selection) {
-        if ( typeof selection != 'undefined') {
-            $scope.produit.producteur = {};
-            $scope.produit.producteur.id = selection.value;
-        }
-    });*/
-    
+
     $scope.$watch("nomproducteurSelection", function(selection) {
         if ( typeof selection != 'undefined') {
             $scope.appeloffreVente.nomproducteur = [];

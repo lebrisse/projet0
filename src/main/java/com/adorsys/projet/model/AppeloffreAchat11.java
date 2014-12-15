@@ -12,7 +12,7 @@ import org.mongojack.ObjectId;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class AppeloffreAchat implements Serializable{
+public class AppeloffreAchat11 implements Serializable{
 
 	private int version = 0;
 
@@ -59,7 +59,7 @@ public class AppeloffreAchat implements Serializable{
 			return false;
 		}
 		if (id != null) {
-			return id.equals(((AppeloffreAchat) that).id);
+			return id.equals(((AppeloffreAchat11) that).id);
 		}
 		return super.equals(that);
 	}
@@ -95,14 +95,6 @@ public class AppeloffreAchat implements Serializable{
 
 	public void setNomAppeloffre(String nomAppeloffre) {
 		this.nomAppeloffre = nomAppeloffre;
-	}
-
-	public String getresponsable() {
-		return responsable;
-	}
-
-	public void setresponsable(String responsable) {
-		this.responsable = responsable;
 	}
 
 	public Date getDatedebut() {

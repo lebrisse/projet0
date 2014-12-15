@@ -1,5 +1,5 @@
 <div class="form-horizontal">
-    <h1>Creer Appel_offre</h1>
+    <h3>Create a new AppeloffreAchat</h3>
     <div class="form-group">
         <div class="col-md-offset-2 col-sm-2">
             <a id="Create" name="Create" class="btn btn-primary" href="#/AppeloffreAchats/new"><span class="glyphicon glyphicon-plus-sign"></span> Create</a>
@@ -8,46 +8,50 @@
 </div>
 <hr/>
 <div>
-    <h3>Search for Appel Offre Achat</h3>
+    <h3>Search for AppeloffreAchats</h3>
     <form id="AppeloffreAchatSearch" class="form-horizontal">
     <div class="form-group">
-        <label for="nomAppeloffre" class="col-sm-2 control-label">Nom_Appel_Offre</label>
+        <label for="libeleoffre" class="col-sm-2 control-label">Libeleoffre</label>
         <div class="col-sm-10">
-            <input id="nomAppeloffre" name="nomAppeloffre" class="form-control" type="text" ng-model="search.nomAppeloffre" placeholder="Enter the Nom Appel Offre"></input>
+            <input id="libeleoffre" name="libeleoffre" class="form-control" type="text" ng-model="search.libeleoffre" placeholder="Enter the AppeloffreAchat Libeleoffre"></input>
         </div>
     </div>
     <div class="form-group">
-        <label for="responsable" class="col-sm-2 control-label">Responsable</label>
+        <label for="nomemetteur" class="col-sm-2 control-label">Nomemetteur</label>
         <div class="col-sm-10">
-            <input id="responsable" name="responsable" class="form-control" type="text" ng-model="search.responsable" placeholder="Enter the Nom Responsable "></input>
+            <input id="nomemetteur" name="nomemetteur" class="form-control" type="text" ng-model="search.nomemetteur" placeholder="Enter the AppeloffreAchat Nomemetteur"></input>
         </div>
     </div>
     <div class="form-group">
-        <label for="Datedebut" class="col-sm-2 control-label">Date_debut</label>
+        <label for="prixAchat" class="col-sm-2 control-label">Prix Achat</label>
         <div class="col-sm-10">
-            <input id="Datedebut" name="Datedebut" class="form-control" type="text" ng-model="search.Datedebut" placeholder="Enter the Date debut"></input>
+            <input id="prixAchat" name="prixAchat" class="form-control" type="text" ng-model="search.prixAchat" placeholder="Enter the AppeloffreAchat Prix Achat"></input>
         </div>
     </div>
     <div class="form-group">
-        <label for="prixproposer" class="col-sm-2 control-label">Prix Proposer</label>
+        <label for="quantite" class="col-sm-2 control-label">Quantite</label>
         <div class="col-sm-10">
-            <input id="prixproposer" name="prixproposer" class="form-control" type="text" ng-model="search.prixproposer" placeholder="Enter the prix proposer"></input>
+            <input id="quantite" name="quantite" class="form-control" type="text" ng-model="search.quantite" placeholder="Enter the AppeloffreAchat Quantite"></input>
         </div>
     </div>
-   <div class="form-group">
-        <label for="producteur" class="col-sm-2 control-label">Producteur</label>
+    <div class="form-group">
+        <label for="Filiere" class="col-sm-2 control-label">Filiere</label>
         <div class="col-sm-10">
-            <select id="producteur" name="producteur" class="form-control" ng-model="search.producteur" ng-options="p as p.nomproducteur for p in producteurList">
-                <option value="">Choose a Producteur</option>
+            <select id="Filiere" name="Filiere" class="form-control" ng-model="search.Filiere" ng-options="F as F for F in FiliereList">
+                <option value="">Choose a Filiere</option>
             </select>
         </div>
     </div>
     <div class="form-group">
-        <label for="nomcommande" class="col-sm-2 control-label">Commande</label>
+        <label for="nomproducteur" class="col-sm-2 control-label">Nomproducteur</label>
         <div class="col-sm-10">
-            <select id="nomcommande" name="nomcommande" class="form-control" ng-model="search.nomcommande" ng-options="p as p.nomcommande for p in commandeList">
-                <option value="">Choose a Commande</option>
-            </select>
+            <input id="nomproducteur" name="nomproducteur" class="form-control" type="text" ng-model="search.nomproducteur" placeholder="Enter the AppeloffreAchat Nomproducteur"></input>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="commande" class="col-sm-2 control-label">Commande</label>
+        <div class="col-sm-10">
+            <input id="commande" name="commande" class="form-control" type="text" ng-model="search.commande" placeholder="Enter the AppeloffreAchat Commande"></input>
         </div>
     </div>
         <div class="form-group">
@@ -62,23 +66,28 @@
         <table class="table table-responsive table-bordered table-striped clearfix">
             <thead>
                 <tr>
-                    <th>NomAppeloffre</th>
+                    <th>Libeleoffre</th>
+                    <th>Nomemetteur</th>
                     <th>Datedebut</th>
                     <th>Datefin</th>
-                    <th>Prixproposer</th>
-                    <th>Producteur</th>
+                    <th>Prix Achat</th>
                     <th>Quantite</th>
+                    <th>Filiere</th>
+                    <th>Nomproducteur</th>
+                    <th>Commande</th>
                 </tr>
             </thead>
             <tbody id="search-results-body">
                 <tr ng-repeat="result in searchResults | searchFilter:searchResults | startFrom:currentPage*pageSize | limitTo:pageSize">
-                    <td><a href="#/AppeloffreAchats/edit/{{result.id}}">{{result.nomAppeloffre}}</a></td>
-                    <td><a href="#/AppeloffreAchats/edit/{{result.id}}">{{result.Datedebut| date:'dd-MM-yyyy'}}</a></td>
-                    <td><a href="#/AppeloffreAchats/edit/{{result.id}}">{{result.Datefin| date:'dd-MM-yyyy'}}</a></td>
-                    <td><a href="#/AppeloffreAchats/edit/{{result.id}}">{{result.prixproposer}}</a></td>
+                    <td><a href="#/AppeloffreAchats/edit/{{result.id}}">{{result.libeleoffre}}</a></td>
+                    <td><a href="#/AppeloffreAchats/edit/{{result.id}}">{{result.nomemetteur}}</a></td>
+                    <td><a href="#/AppeloffreAchats/edit/{{result.id}}">{{result.datedebut| date:'yyyy-MM-dd HH:mm:ss Z'}}</a></td>
+                    <td><a href="#/AppeloffreAchats/edit/{{result.id}}">{{result.datefin| date:'yyyy-MM-dd HH:mm:ss Z'}}</a></td>
+                    <td><a href="#/AppeloffreAchats/edit/{{result.id}}">{{result.prixAchat}}</a></td>
+                    <td><a href="#/AppeloffreAchats/edit/{{result.id}}">{{result.quantite}}</a></td>
+                    <td><a href="#/AppeloffreAchats/edit/{{result.id}}">{{result.Filiere}}</a></td>
                     <td><a href="#/AppeloffreAchats/edit/{{result.id}}">{{result.nomproducteur}}</a></td>
-                    <td><a href="#/AppeloffreAchats/edit/{{result.id}}">{{result.quantite}}Fcfa</a></td>
-                   
+                    <td><a href="#/AppeloffreAchats/edit/{{result.id}}">{{result.commande}}</a></td>
                 </tr>
             </tbody>
         </table>
